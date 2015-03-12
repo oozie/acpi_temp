@@ -1,0 +1,17 @@
+{
+	"name": "collectors",
+	"description": "OpenTSDB Collectors",
+	"copyright": "Copyright © 2015, oozie",
+	"authors": ["oozie"],
+	"dependencies": { },
+    "configurations": [
+        {
+            "name": "acpi_temp",
+            "sourceFiles": ["source/acpi_temp.d"],
+            "targetName": "acpi_temp",
+            "targetPath": "collectors/60",
+            "targetType": "executable",
+            "platform": "linux",
+        }
+    ]
+}
