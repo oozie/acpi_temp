@@ -9,7 +9,7 @@
             "name": "acpi_temp",
             "sourceFiles": ["source/acpi_temp.d"],
             "targetName": "acpi_temp",
-            "targetPath": "collectors/60",
+            "targetPath": "collectors/0",
             "targetType": "executable",
             "platform": "linux",
         }
