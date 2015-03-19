@@ -1,6 +1,6 @@
 {
 	"name": "collectors",
-	"description": "OpenTSDB Collectors",
+	"description": "Collectors for OpenTSDB/tcollector",
 	"copyright": "Copyright © 2015, oozie",
 	"authors": ["oozie"],
 	"dependencies": { },
