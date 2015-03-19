@@ -22,6 +22,7 @@ void main()
             string value = status_array[1];
             writeln(METRIC_NAME, " ", time_now, " ", value, " unit=", unit);
         }
+        stdout.flush();
         Thread.sleep(dur!("seconds")(60));
     }
 }
