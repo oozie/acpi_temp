@@ -1,9 +1,9 @@
 {
-	"name": "collectors",
-	"description": "Collectors for OpenTSDB/tcollector",
-	"copyright": "Copyright © 2015, oozie",
-	"authors": ["oozie"],
-	"dependencies": { },
+    "name": "collectors",
+    "description": "Collectors for OpenTSDB/tcollector",
+    "copyright": "Copyright © 2015, oozie",
+    "authors": ["oozie"],
+    "dependencies": { },
     "configurations": [
         {
             "name": "acpi_temp",

@@ -1,28 +1,40 @@
 #!/usr/bin/rdmd
-import std.array;
-import std.datetime;
-import std.process;
-import std.stdio;
+
 import core.thread;
+import std.array;
+import std.conv;
+import std.datetime;
+import std.file;
+import std.stdio;
+import std.string;
 
 immutable METRIC_NAME = "acpi.temperature";
+immutable INTERVAL = dur!("seconds")(60);
 
-void main()
-{
+double getCelsiusTempForZone(uint zone) {
+    string fileName = "/sys/class/thermal/thermal_zone"
+                      ~ to!string(zone) ~ "/temp";
+    string tempCelciusText = stripRight(readText(fileName));
+    double tempCelcius = to!double(tempCelciusText) / 1000;
+    return tempCelcius;
+}
+
+uint getNumZones() {
+    auto zoneDirs = array(
+        dirEntries("/sys/class/thermal", "thermal_zone?", SpanMode.shallow)
+    );
+    return to!uint(zoneDirs.length);
+}
+
+void main() {
+    uint numZones = getNumZones();
     while(true) {
-        auto acpi_temp = pipeProcess(["/usr/bin/acpi", "-t"], Redirect.stdout);
-        scope(exit) wait(acpi_temp.pid);
-        
         long time_now = Clock.currTime().toUnixTime();
-        foreach (line; acpi_temp.stdout.byLine) {
-            char[][] unit_status = line.split(": "); 
-            string unit = cast(string)unit_status[0].replace(" ", "");
-            string status = cast(string)unit_status[1];
-            auto status_array = status.split(" ");
-            string value = status_array[1];
-            writeln(METRIC_NAME, " ", time_now, " ", value, " unit=", unit);
+        for(uint zone=0; zone < numZones; zone++) {
+            double value = getCelsiusTempForZone(zone);
+            writefln("%s %s %.1f zone=Thermal%s", METRIC_NAME, time_now, value, zone);
         }
         stdout.flush();
-        Thread.sleep(dur!("seconds")(60));
+        Thread.sleep(INTERVAL);
     }
 }
