@@ -1,5 +1,6 @@
 {
-    "name": "collectors",
+    "name": "dcollectors",
+    "version": "0.0.1",
     "description": "Collectors for OpenTSDB/tcollector",
     "copyright": "Copyright © 2015, oozie",
     "authors": ["oozie"],
@@ -13,5 +14,8 @@
             "targetType": "executable",
             "platform": "linux",
         }
+    ],
+    "buildRequirements": [
+        "requireBoundsCheck", "disallowDeprecations"
     ]
 }
