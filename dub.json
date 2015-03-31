@@ -4,18 +4,33 @@
     "description": "Collectors for OpenTSDB/tcollector",
     "copyright": "Copyright © 2015, oozie",
     "authors": ["oozie"],
-    "dependencies": { },
-    "configurations": [
-        {
-            "name": "acpi_temp",
-            "sourceFiles": ["source/acpi_temp.d"],
-            "targetName": "acpi_temp",
-            "targetPath": "collectors/0",
-            "targetType": "executable",
-            "platform": "linux",
-        }
-    ],
+    "platform": "linux",
     "buildRequirements": [
         "requireBoundsCheck", "disallowDeprecations"
+    ],
+
+    "sourcePaths": ["source/acpi_temp"],
+    "targetType": "executable",
+    "targetName": "example",
+
+    "subPackages": [
+        {
+            "name": "acpi_temp",
+            "sourcePaths": ["source/acpi_temp"],
+            "targetName": "acpi_temp",
+            "targetPath": "collectors/0",
+        },
+        {
+            "name": "logscanner",
+            "sourcePaths": ["source/logscanner"],
+            "targetName": "logscanner",
+            "targetPath": "collectors/0",
+        },
+        {
+            "name": "utils",
+            "sourcePaths": ["source/utils"],
+            "targetName": "collector",
+            "targetPath": "collectors",
+        },
     ]
 }
