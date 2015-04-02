@@ -1,7 +1,7 @@
 {
-    "name": "dcollectors",
+    "name": "acpi_temp",
     "version": "0.0.1",
-    "description": "Collectors for OpenTSDB/tcollector",
+    "description": "ACPI temperature collection agent for tcollector",
     "copyright": "Copyright © 2015, oozie",
     "authors": ["oozie"],
     "platform": "linux",
@@ -9,28 +9,7 @@
         "requireBoundsCheck", "disallowDeprecations"
     ],
 
-    "sourcePaths": ["source/acpi_temp"],
     "targetType": "executable",
-    "targetName": "example",
-
-    "subPackages": [
-        {
-            "name": "acpi_temp",
-            "sourcePaths": ["source/acpi_temp"],
-            "targetName": "acpi_temp",
-            "targetPath": "collectors/0",
-        },
-        {
-            "name": "logscanner",
-            "sourcePaths": ["source/logscanner"],
-            "targetName": "logscanner",
-            "targetPath": "collectors/0",
-        },
-        {
-            "name": "utils",
-            "sourcePaths": ["source/utils"],
-            "targetName": "collector",
-            "targetPath": "collectors",
-        },
-    ]
+    "targetName": "acpi_temp",
+    "targetPath": "collectors/0",
 }
