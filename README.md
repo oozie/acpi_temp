@@ -1,5 +1,5 @@
 # Low-overhead acpi-temp collection agent for OpenTSDB's tcollector
-Report CPUs temperature as reported by the `acpi -t` command. 
+Report CPUs temperature, similar to the output of the `acpi -t` command. 
    * Tags: {`zone` => `thermalN`} where N is the number of the reporting thermal zone
 
 # Building D source with `dub`
