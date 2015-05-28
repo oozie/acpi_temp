@@ -11,7 +11,7 @@ acpi.temperature 1432609410 51.0 zone=Thermal1
 * Deploy `acpi_temp` in `tcollector`'s `collectors/0` directory, as a long-lived collector.
    * Tags: {`zone` => `thermalN`} where N is the number of the reporting thermal zone
 
-The following sequence diagram illistrates how the operation of the collector.
+The following sequence diagram illistrates the operation of this collector.
 ![How acpi_temp works](https://raw.githubusercontent.com/oozie/acpi_temp/gh-pages/acpitemp.png)
 
 # Building D source with `dub`
